@@ -4,21 +4,19 @@ const $startBtn = $('.btn__reset');
 let guess = 0;
 
 const phrases = ['i love you',  // create an array of phrases
-    'i miss you',
-    'you are my life',
-    'you are my breath',
-    'you are my cat'
+    'imissyou',
+    'youaremylife',
+    'youaremybreath',
+    'youaremycat'
 ];
 
 function getRandomPhraseAsArray(arr) {
-    // get random phrase from 'phrases array'
+    // get random phrase from 'phrases array  and split it into chars'
     for (let i = 0; i < arr.length; i++) {
         let randomNumber = arr[Math.floor(Math.random() * arr.length)] // 
-    return  randomNumber.split('');
-
-        
+        return  randomNumber.split('');  
     }
-    
+ 
 }
 
 const phraseArray = getRandomPhraseAsArray(phrases);  // function of random phrases stocked in a variable;
