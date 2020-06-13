@@ -1,3 +1,4 @@
 {
-    "screencastMode.onlyKeyboardShortcuts": true
+    "screencastMode.onlyKeyboardShortcuts": true,
+    "files.autoSave": "afterDelay"
 }

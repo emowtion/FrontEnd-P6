@@ -4,10 +4,10 @@ const $startBtn = $('.btn__reset');
 let guess = 0;
 
 const phrases = ['i love you',  // create an array of phrases
-    'imissyou',
-    'youaremylife',
-    'youaremybreath',
-    'youaremycat'
+    'i miss you',
+    'you aremy life',
+    'you are my breath',
+    'you are my cat'
 ];
 
 function getRandomPhraseAsArray(arr) {
@@ -22,11 +22,19 @@ function getRandomPhraseAsArray(arr) {
 const phraseArray = getRandomPhraseAsArray(phrases);  // function of random phrases stocked in a variable;
 
 function addPhraseToDisplay(arr) {
+    const docFragment = document.createDocumentFragment();
     for (let i = 0; i < arr.length; i++) {
-    let listItem = $('#phrase ul').append('<li>' + arr[i] + '</li>');
-    listItem.addClass('letter');
+    const listItems = document.createElement('li');
+    const liContent = document.createTextNode(arr[i]);
+    listItems.appendChild(liContent);
+    docFragment.appendChild(listItems);
+    if (listItems.textContent === arr[i]) {
+        listItems.classList.add('letter')
+    } else if (listItems === ' ') {
+        listItems.classList.add('space')
+    }
 }
-    
+    $('#phrase ul').append(docFragment);
 }
 
 addPhraseToDisplay(phraseArray);
