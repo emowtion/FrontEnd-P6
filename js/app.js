@@ -3,7 +3,7 @@ const $phrase = $('#phrase');
 const $startBtn = $('.btn__reset');
 let guess = 0;
 
-const phrases = ['i love you',
+const phrases = ['i love you',  // create an array of phrases
     'i miss you',
     'you are my life',
     'you are my breath',
@@ -12,17 +12,20 @@ const phrases = ['i love you',
 
 function getRandomPhraseAsArray(arr) {
     // get random phrase from 'phrases array'
-    let randomNumber = arr[Math.floor(Math.random() * arr.length)] // random chiffre basé le nombre de phrase dans "phrase array"
-    return  randomNumber.split()
+ 
+    let randomNumber = arr[Math.floor(Math.random() * arr.length)] // 
+    return  randomNumber.split('');
+
 }
 
-const phraseArray = getRandomPhraseAsArray(phrases);
+const phraseArray = getRandomPhraseAsArray(phrases);  // function of random phrases stocked in a variable;
 
 function addPhraseToDisplay(arr) {
     for (let i = 0; i < arr.length; i++) {
-       let listItem = $('#phrase ul').append('<li>' + arr[i] + '</li>');
-       listItem.addClass('letter');
-    }
+    let listItem = $('#phrase ul').append('<li>' + arr[i] + '</li>');
+    listItem.addClass('letter');
+}
+    
 }
 
 addPhraseToDisplay(phraseArray);
