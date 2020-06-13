@@ -12,10 +12,13 @@ const phrases = ['i love you',  // create an array of phrases
 
 function getRandomPhraseAsArray(arr) {
     // get random phrase from 'phrases array'
- 
-    let randomNumber = arr[Math.floor(Math.random() * arr.length)] // 
+    for (let i = 0; i < arr.length; i++) {
+        let randomNumber = arr[Math.floor(Math.random() * arr.length)] // 
     return  randomNumber.split('');
 
+        
+    }
+    
 }
 
 const phraseArray = getRandomPhraseAsArray(phrases);  // function of random phrases stocked in a variable;
