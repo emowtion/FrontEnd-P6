@@ -41,4 +41,3 @@ $startBtn.click(function () {
 $qwerty.on( "click", function( event ) {
     checkLetter (event.button)
   });
-
