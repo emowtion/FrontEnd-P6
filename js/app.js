@@ -30,7 +30,7 @@ function addPhraseToDisplay(arr) {
     docFragment.appendChild(listItems);
     if (listItems.textContent === arr[i]) {
         listItems.classList.add('letter')
-    } else if (listItems === ' ') {
+    } else  {
         listItems.classList.add('space')
     }
 }
