@@ -2,7 +2,7 @@ const $qwerty = $('#qwerty');
 const $phrase = $('#phrase');
 const $startBtn = $('.btn__reset');
 let missed = 0;
-
+const overlay = document.getElementById('overlay');
 const phrases = ['i love you',  // create an array of phrases
     'i miss you',
     'you are my life',
@@ -65,22 +65,27 @@ $qwerty.on( "click", function( event ) {
    
     let letterFound = event.target.innerHTML;
     checkLetter(letterFound);
-   /*  let heart = document.querySelectorAll('.tries')
+    let heart = document.querySelectorAll('.tries')
     if (letterFound === null) {
-        heart.nextElementSibling.remove()
-        missed++;
-    }  */
+     heart.nextElementSibling.remove()
+       missed++;
+   } //    
     checkWin();
   });
 
 
   function checkWin() {
+   
     let show = document.querySelectorAll('.show').length;
     let letter = document.querySelectorAll('.letter').length;
-   
     if (show === letter) {
-        document.querySelector('.win').style.display = 'block';
-    } if(missed => 5) {
-        document.querySelector('.lose').style.display = 'block';
+        overlay.classList.add('win');
+        overlay.style.display = 'block';
+        document.querySelector('#overlay h2').innerHTML = 'you win !!!'
+       
+    } if(missed >= 5) {
+        overlay.classList.add('lose');
+        overlay.style.display = 'block';
+        document.querySelector('#overlay h2').innerHTML = 'Sorry Try again !!!'
     }
   }
