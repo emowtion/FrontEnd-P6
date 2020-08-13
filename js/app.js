@@ -5,6 +5,8 @@ let missed = 0;
 const overlay = document.getElementById('overlay');
 const tries = document.querySelectorAll('.tries');
 let match;
+
+
 const phrases = ['i love you', // create an array of phrases
     'i miss you',
     'you are my life',
@@ -58,17 +60,24 @@ $startBtn.click(function () {
     $('#overlay').hide()
 });
 
-$qwerty.on("click", function (event) {  
-    let chosen = event.target;
-    chosen.className += 'chosen';
-    chosen.disabled = true;
-    let letterFound = event.target.innerHTML;
-    checkLetter(letterFound);
-    if (!match) {
-        tries[missed].style.display = 'none';
-        missed += 1;
+$qwerty.on("click", function (event) {
+
+    let chosen = $(event.target);
+    if (chosen.hasClass('letter')) {
+        chosen.className += 'chosen';
+        chosen.disabled = true;
+        let letterFound = event.target.innerHTML;
+        checkLetter(letterFound);
+        if (!match) {
+            tries[missed].style.display = 'none';
+            missed += 1;
+        }
+        
+    } else {
+        return  checkWin();
     }
-    checkWin();
+
+
 });
 
 

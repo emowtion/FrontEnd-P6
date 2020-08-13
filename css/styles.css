@@ -156,8 +156,15 @@ button {
 
 .lose {
   background-color: var(--color-lose);
+  display: flex;
+  align-items: center;
 }
 
 .lose a {
   color: var(--color-lose);
+}
+
+
+.lose h2 {
+ /* position: absolute;*/
 }
