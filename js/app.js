@@ -24,7 +24,7 @@ function getRandomPhraseAsArray(arr) {
 
 const phraseArray = getRandomPhraseAsArray(phrases); // function of random phrases stocked in a variable;
 
-function addPhraseToDisplay(arr) {   // add phrase to display function
+function addPhraseToDisplay(arr) { // add phrase to display function
     const docFragment = document.createDocumentFragment();
     for (let i = 0; i < arr.length; i++) {
         const listItems = document.createElement('li');
@@ -43,7 +43,7 @@ function addPhraseToDisplay(arr) {   // add phrase to display function
 addPhraseToDisplay(phraseArray);
 
 
-function checkLetter(button) {  // the checkLetter function
+function checkLetter(button) { // the checkLetter function
     match = false;
     let list = document.getElementsByClassName('letter');
     match = null;
@@ -57,13 +57,15 @@ function checkLetter(button) {  // the checkLetter function
 };
 
 $startBtn.click(function () {
-    $('#overlay').hide()
+    $('#overlay').hide();
+
 });
 
-$qwerty.on("click", function (event) {
 
-    let chosen = $(event.target);
-    if (chosen.hasClass('letter')) {
+
+$qwerty.on("click", function (event) {
+    let chosen = event.target;
+    if (chosen.tagName === "BUTTON") {
         chosen.className += 'chosen';
         chosen.disabled = true;
         let letterFound = event.target.innerHTML;
@@ -72,17 +74,13 @@ $qwerty.on("click", function (event) {
             tries[missed].style.display = 'none';
             missed += 1;
         }
-        
-    } else {
-        return  checkWin();
     }
-
-
+    checkWin();
 });
 
 
-function checkWin() {   // the checkWin function
-  
+function checkWin() { // the checkWin function
+
     let show = document.querySelectorAll('.show').length;
     let letter = document.querySelectorAll('.letter').length;
     if (show === letter) {
@@ -96,4 +94,5 @@ function checkWin() {   // the checkWin function
         overlay.style.display = 'block';
         document.querySelector('#overlay h2').innerHTML = 'Sorry Try again !!!'
     }
+
 }

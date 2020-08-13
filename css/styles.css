@@ -166,5 +166,9 @@ button {
 
 
 .lose h2 {
- /* position: absolute;*/
+ margin-top: 500px;
+}
+
+.win h2 {
+  margin-top: 500px;
 }
